@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<yard name="tap">
+    <property id="version" value="0.0.1" />
+    <property id="name" value="tap" />
+
+    <phase id="test">
+        <execute program="prove" arguments="-v"/>
+    </phase>
+
+    <phase id="install" depends="test">
+        <copy file="tap.feh" target="$(FeriteModuleSourceDir)" />
+    </phase>
+</yard>

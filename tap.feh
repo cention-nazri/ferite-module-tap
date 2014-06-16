@@ -1,0 +1,58 @@
+uses "console";
+
+global {
+	number tap_ntests = 0;
+}
+
+namespace Tap {
+	function comment(string msg) {
+		return '# ' + msg.replace("\n", "\n# ");
+	}
+}
+
+function done_testing() {
+	Console.println("1.." + tap_ntests);
+}
+
+function ok(number t, string msg) {
+	string status = "ok";
+	if (!t) {
+		status = "not ok";
+	}
+	Console.println(status + " " + ++tap_ntests + " - " + msg);
+	return t;
+}
+
+function diag(number n) {
+	Console.println("# $n");
+}
+
+function diag(string msg) {
+	Console.println(Tap.comment(msg));
+}
+
+function fail(string description) {
+	ok (false, description);
+}
+
+function pass(string description) {
+	ok (true, description);
+}
+
+function is(number got, number expected, string msg) {
+	boolean succeed  = ok(got == expected, msg);
+	if (! succeed ) {
+		Console.println("# want: $expected");
+		Console.println("#  got: $got");
+		return false;
+	}
+	return succeed;
+}
+
+function is(string got, string expected, string msg) {
+	if (! ok(got == expected, msg)) {
+		Console.println("# want:\n" + Tap.comment(expected));
+		Console.println("# ---");
+		Console.println("#  got:\n" + Tap.comment(got));
+	}
+}

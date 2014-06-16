@@ -1,0 +1,5 @@
+tap.fe - implements minimal support for TAP [1,2]
+
+
+[1] http://testanything.org/
+[2] http://en.wikipedia.org/wiki/Test_Anything_Protocol

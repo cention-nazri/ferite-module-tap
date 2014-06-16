@@ -1,0 +1,12 @@
+What we have now is minimally functional and should be enough to cover 90% of
+tap-driven development needs (hence the 0.0.1 version).
+
+To reach 100%, we need to implement the rest of TAP specification[1]:
+
+	- plan
+	- skip
+	- todo
+	- bail out
+	- etc
+
+[1] http://testanything.org/tap-specification.html
