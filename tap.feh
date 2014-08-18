@@ -1,3 +1,19 @@
+/*
+    $ cat test.fe
+    #!/usr/bin/env ferite
+    uses "tap.feh";
+
+    ok(1, "Yea!");
+    diag("This is a test");
+    is(42, 42, "Good");
+    is("foo", "foo", "Yup");
+
+    done_testing();
+    $ chmod +x test.fe
+    $ prove ./test.fe
+    $ prove -v ./test.fe
+*/
+
 uses "console";
 
 global {
